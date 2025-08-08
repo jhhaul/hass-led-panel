@@ -97,6 +97,14 @@ Each line is a "pseudo-URL"; the possible values are
 | hass  | hass://entity_id:red:green | Queries HASS for entity status | hass://entity_id             |
 | null  | null://                    | Do nothing (LED stays black)   | null://reserved for foobar   |
 
+- Below the URLs, there ar for additional, global variables:
+  - Timeout: Timeout (in seconds) until a reques is considered failed; the LED turns orange. Not implemented for all URL types!
+  - Brightness: The brightness of the LEDs. Adjsut to your LED strip and surroundings. The range is 1 to 255; 30 works well for my strips but yours may be different.
+  - HASS URL: The URL of your Home Assistant server. It's only used if you use hass:// pseudo-URLs.
+  - HASS LLAT: To authenticate, you need a long-lived authentication token from your Home Assistant server. It's only used if you use hass:// pseudo-URLs. I recommend creating a separate HASS user and setting it to read-only, as an intruder could get at this LRIT easily.
+
+You can revisit the configuration page at any time and make changes as needed.
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first
